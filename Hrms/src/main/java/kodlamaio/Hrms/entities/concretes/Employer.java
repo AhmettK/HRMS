@@ -1,9 +1,13 @@
 package kodlamaio.Hrms.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,17 +20,18 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
 public class Employer extends User{
 	
 	@Column(name="company_name")
-	@NotEmpty(message = "Boş bırakılamaz")
 	private String companyName;
 	
 	@Column(name="web_adress")
-	@NotEmpty(message = "Boş bırakılamaz")
 	private String webAdress;
 	
 	@Column(name="phone_number")
-	@NotEmpty(message = "Boş bırakılamaz")
 	private String phoneNumber;
+	
+	@OneToMany(mappedBy = "employer")
+	private List<JobAdvertisement> jobAdvertisements;
 }

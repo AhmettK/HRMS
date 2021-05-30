@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,10 +26,8 @@ public class User {
 	private int id;
 	
 	@Column(name="email")
-	@NotEmpty(message = "Boş bırakılamaz")
 	private String email;
 	
 	@Column(name="password")
-	@NotEmpty(message = "Boş bırakılamaz")
 	private String password;
 }
