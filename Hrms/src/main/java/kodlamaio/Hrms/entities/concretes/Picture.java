@@ -19,19 +19,19 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="technologies")
+@Table(name="pictures")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","resume"})
-public class Technology {
+public class Picture {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
+	
+	@Column(name="url")
+	private String url;
 	
 	@ManyToOne
 	@JoinColumn(name="resume_id")
 	private Resume resume;
-	
-	@Column(name="technology_name")
-	private String technologyName;
 }

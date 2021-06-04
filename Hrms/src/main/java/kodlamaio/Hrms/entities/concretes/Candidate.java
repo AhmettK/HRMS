@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -21,7 +20,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","schools","experiences","languages","technologies","resumes"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","resumes"})
 public class Candidate extends User{
 	
 	@Column(name="first_name")
@@ -37,17 +36,6 @@ public class Candidate extends User{
 	private int birthDate;
 	
 	@OneToMany(mappedBy = "candidate")
-	private List<School> schools;
+	private List<Resume> resumes;
 	
-	@OneToMany(mappedBy = "candidate")
-	private List<Experience> experiences;
-	
-	@OneToMany(mappedBy = "candidate")
-	private List<Language> languages;
-	
-	@OneToMany(mappedBy = "candidate")
-	private List<Technology> technologies;
-	
-	@OneToOne(mappedBy = "candidate")
-	private Resume resumes;
 }

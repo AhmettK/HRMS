@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="languages")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","resume"})
 public class Language {
 	
 	@Id
@@ -28,8 +31,8 @@ public class Language {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="candidate_id")
-	private Candidate candidate;
+	@JoinColumn(name="resume_id")
+	private Resume resume;
 	
 	@Column(name="language_name")
 	private String languageName;

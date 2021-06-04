@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="experiences")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","resume"})
 public class Experience {
 	
 	@Id
@@ -28,8 +31,8 @@ public class Experience {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="candidate_id")
-	private Candidate candidate;
+	@JoinColumn(name="resume_id")
+	private Resume resume;
 	
 	@Column(name="workplace_name")
 	private String workplaceName;

@@ -1,11 +1,14 @@
-package kodlamaio.Hrms.adapters;
+package kodlamaio.Hrms.core.adapters.concretes;
 
 import java.rmi.RemoteException;
 
+import kodlamaio.Hrms.core.adapters.abstracts.MernisAdapterService;
 import kodlamaio.Hrms.entities.concretes.Candidate;
 import tr.gov.nvi.tckimlik.WS.KPSPublicSoapProxy;
 
-public class MernisAdapter {
+public class MernisAdapterManager implements MernisAdapterService{
+	
+	@Override
 	public boolean isReal(Candidate candidate) {
 		KPSPublicSoapProxy client = new KPSPublicSoapProxy();
 		boolean result=false;
