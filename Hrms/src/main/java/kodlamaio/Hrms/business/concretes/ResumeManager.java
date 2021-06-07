@@ -49,4 +49,9 @@ public class ResumeManager implements ResumeService{
 		this.resumeDao.save(resume);
 		return new SuccessDataResult<>("Foto eklendi");
 	}
+
+	@Override
+	public DataResult<Resume> getByCandidate_Id(int id) {
+		return new SuccessDataResult<Resume>(this.resumeDao.getByCandidate_Id(id));
+	}
 }

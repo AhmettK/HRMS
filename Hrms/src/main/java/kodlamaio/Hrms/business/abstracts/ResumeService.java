@@ -13,4 +13,5 @@ public interface ResumeService {
 	DataResult<List<Resume>> getAll();
 	Result add(Resume resume);
 	DataResult<Resume> imageUpload(int resumeId, MultipartFile multipartFile) throws IOException;
+	DataResult<Resume> getByCandidate_Id(int id);
 }

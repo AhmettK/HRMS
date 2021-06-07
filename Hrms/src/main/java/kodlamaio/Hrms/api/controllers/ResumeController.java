@@ -45,4 +45,8 @@ public class ResumeController {
 		return new ResponseEntity<>(this.resumeService.imageUpload(resumeId, multipartFile),HttpStatus.OK);
 	}
 	
+	@GetMapping("/getByCandidate_Id")
+	public DataResult<Resume> getByCandidate_Id(int id){
+		return this.resumeService.getByCandidate_Id(id);
+	}
 }
