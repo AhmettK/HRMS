@@ -33,6 +33,11 @@ public class TechnologyController {
 		return this.technologyService.getAll();
 	}
 	
+	@GetMapping("/getByResume_Id")
+	public DataResult<List<Technology>> getByResume_Id(int id){
+		return this.technologyService.getByResume_Id(id);
+	}
+	
 	@PostMapping("/add")
 	public Result add(@RequestBody Technology technology) {
 		return this.technologyService.add(technology);

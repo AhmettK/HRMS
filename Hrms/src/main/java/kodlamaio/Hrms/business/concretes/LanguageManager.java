@@ -34,5 +34,10 @@ public class LanguageManager implements LanguageService{
 		this.languageDao.save(language);
 		return new SuccessResult("Yabancı dil eklendi");
 	}
+
+	@Override
+	public DataResult<List<Language>> getByResume_Id(int id) {
+		return new SuccessDataResult<List<Language>>(this.languageDao.getByResume_Id(id));
+	}
 	
 }

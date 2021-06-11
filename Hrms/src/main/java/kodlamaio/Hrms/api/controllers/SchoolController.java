@@ -48,6 +48,11 @@ public class SchoolController {
 		return this.schoolService.getAllSorted();
 	}
 	
+	@GetMapping("/getByResume_Id")
+	public DataResult<List<School>> getByResume_Id(int id){
+		return this.schoolService.getByResume_Id(id);
+	}
+	
 	@PostMapping(value="/add")
 	public ResponseEntity<?> add(@Valid @RequestBody School school){
 		return ResponseEntity.ok(this.schoolService.add(school));

@@ -38,6 +38,11 @@ public class ExperienceController {
 		return this.experienceService.getAllSorted();
 	}
 	
+	@GetMapping("/getByResume_Id")
+	public DataResult<List<Experience>> getByResume_Id(int id){
+		return this.experienceService.getByResumeId(id);
+	}
+	
 	@PostMapping("/add")
 	public Result add(@RequestBody Experience experience) {
 		return this.experienceService.add(experience);

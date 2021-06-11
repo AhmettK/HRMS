@@ -35,4 +35,9 @@ public class TechnologyManager implements TechnologyService{
 		return new SuccessResult("Teknoloji kaydedildi");
 	}
 
+	@Override
+	public DataResult<List<Technology>> getByResume_Id(int id) {
+		return new SuccessDataResult<List<Technology>>(this.technologyDao.getByResume_Id(id));
+	}
+
 }

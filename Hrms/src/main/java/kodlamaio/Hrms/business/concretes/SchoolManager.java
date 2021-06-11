@@ -42,4 +42,9 @@ public class SchoolManager implements SchoolService{
 		return new SuccessDataResult<List<School>>(this.schoolDao.findAll(sort));
 	}
 
+	@Override
+	public DataResult<List<School>> getByResume_Id(int id) {
+		return new SuccessDataResult<List<School>>(this.schoolDao.getByResume_Id(id));
+	}
+
 }

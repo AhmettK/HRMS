@@ -9,4 +9,5 @@ import kodlamaio.Hrms.entities.concretes.Language;
 public interface LanguageService {
 	DataResult<List<Language>> getAll();
 	Result add(Language language);
+	DataResult<List<Language>> getByResume_Id(int id);
 }
